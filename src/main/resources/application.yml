@@ -11,3 +11,5 @@ spring:
   logging:
     level:
       br.com.unicred: error
+  flyway:
+    enabled: true
