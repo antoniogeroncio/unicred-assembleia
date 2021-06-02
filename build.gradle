@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id "org.flywaydb.flyway" version "7.9.1"
+	id 'jacoco'
 }
 
 group = 'br.com.unicred'
@@ -37,4 +38,5 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
