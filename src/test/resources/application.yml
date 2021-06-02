@@ -13,4 +13,4 @@ spring:
     level:
       br.com.unicred: debug
   flyway:
-    enabled: true
+    enabled: false
