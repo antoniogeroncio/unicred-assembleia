@@ -34,6 +34,9 @@ jobs:
       # run build!
       - run: gradle build
 
+      - setup_remote_docker:
+          version: 19.03.13
+
       # login docker registry!
       - run: docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
 
