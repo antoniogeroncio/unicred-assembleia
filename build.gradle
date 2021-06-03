@@ -40,3 +40,10 @@ test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled false
+	}
+}

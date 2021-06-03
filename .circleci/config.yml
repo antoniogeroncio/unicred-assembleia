@@ -45,5 +45,5 @@ jobs:
 
       # export covarege
       - codecov/upload:
-          file: /home/circleci/repo/build/reports/jacobo/*
+          file: /home/circleci/repo/build/reports/jacoco/*
           token: 1276ce30-72ff-4ec2-b7a5-ee4db6021a35
