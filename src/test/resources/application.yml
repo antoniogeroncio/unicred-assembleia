@@ -12,3 +12,5 @@ spring:
   logging:
     level:
       br.com.unicred: debug
+  flyway:
+    enabled: false
