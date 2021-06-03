@@ -56,17 +56,15 @@ jacocoTestReport {
 
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
-var dockerImagem = "antoniogeroncio/" + project.name + ":" + project.version
-
 task dockerBuildImagem(type: DockerBuildImage) {
 	copy {
 		from 'devops/docker'
 		into "build"
 	}
 	inputDir = file('build')
-	images.add(dockerImagem)
+	images.add("antoniogeroncio/" + project.name + ":" + project.version)
 }
 
 task dockerPushImage(type: Exec) {
-	commandLine "docker", "push", dockerImagem
+	commandLine "docker", "push", "antoniogeroncio/" + project.name + ":" + project.version
 }
