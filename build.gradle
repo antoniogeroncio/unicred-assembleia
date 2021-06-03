@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id "org.flywaydb.flyway" version "7.9.1"
 	id 'jacoco'
+	id 'com.bmuschko.docker-remote-api' version '7.0.0'
 }
 
 group = 'br.com.unicred'
@@ -17,7 +18,12 @@ configurations {
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
+}
+
+springBoot {
+	buildInfo()
 }
 
 dependencies {
@@ -46,4 +52,21 @@ jacocoTestReport {
 		xml.enabled true
 		html.enabled true
 	}
+}
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+var dockerImagem = "antoniogeroncio/" + project.name + ":" + project.version
+
+task dockerBuildImagem(type: DockerBuildImage) {
+	copy {
+		from 'devops/docker'
+		into "build"
+	}
+	inputDir = file('build')
+	images.add(dockerImagem)
+}
+
+task dockerPushImage(type: Exec) {
+	commandLine "docker", "push", dockerImagem
 }
