@@ -40,7 +40,7 @@ Ref: https://docs.codecov.io/docs/about-code-coverage
 
 Este projeto é distribuído como uma imagem docker e está hospedado no Docker Hub.
 
-Link: https://hub.docker.com/repository/docker/antoniogeroncio/unicred-assembleia
+Link: https://hub.docker.com/r/antoniogeroncio/unicred-assembleia
 
 # Implantação
 
