@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class SessaoAbrirResponseDtoConverter {
     public static SessaoAbrirResponseDto converter(Sessao sessao) {
         return SessaoAbrirResponseDto.builder()
-                .id(sessao.getPauta().getId())
+                .id(sessao.getId())
                 .finalizacao(sessao.getDataFinalizacao())
                 .build();
     }

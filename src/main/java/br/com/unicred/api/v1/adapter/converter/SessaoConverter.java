@@ -12,9 +12,7 @@ import static java.time.LocalDateTime.now;
 public class SessaoConverter {
     public static Sessao converter(SessaoAbrirRequestDto request) {
         return Sessao.builder()
-                .pauta(Pauta.builder()
-                        .id(request.getIdPauta())
-                        .build())
+                .id(request.getIdPauta())
                 .dataAbertura(now())
                 .build();
     }

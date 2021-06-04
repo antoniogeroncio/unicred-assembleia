@@ -22,4 +22,6 @@ public class Pauta {
     private String nome;
     @Column(name = "descricao")
     private String descricao;
+    @OneToOne(mappedBy = "pauta")
+    private Sessao sessao;
 }
