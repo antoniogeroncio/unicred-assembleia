@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import static br.com.unicred.config.Constantes.*;
@@ -37,7 +38,8 @@ public class PautaController {
             @ApiResponse(code = HTTP_STATUS_CODE_400,
                             message = HTTP_STATUS_DESC_BAD_REQUEST,
                                 response = ErroVM.class)})
-    public ResponseEntity<PautaCadastrarResponseDto> cadastrar(@Valid @RequestBody PautaCadastrarRequestDto request){
+    @Transactional
+    public ResponseEntity<PautaCadastrarResponseDto> cadastrarPauta(@Valid @RequestBody PautaCadastrarRequestDto request){
         PautaCadastrarResponseDto response = adapter.cadastrar(request);
         return ResponseEntity.status(CREATED)
                 .body(response);

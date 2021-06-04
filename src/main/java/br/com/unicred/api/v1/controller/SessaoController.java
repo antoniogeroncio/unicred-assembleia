@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import static br.com.unicred.config.Constantes.*;
@@ -38,7 +39,8 @@ public class SessaoController {
             @ApiResponse(code = HTTP_STATUS_CODE_400,
                             message = HTTP_STATUS_DESC_BAD_REQUEST,
                                 response = ErroVM.class)})
-    public ResponseEntity<SessaoAbrirResponseDto> abrir(@Valid @RequestBody SessaoAbrirRequestDto request){
+    @Transactional
+    public ResponseEntity<SessaoAbrirResponseDto> abrirSessao(@Valid @RequestBody SessaoAbrirRequestDto request){
         SessaoAbrirResponseDto response = adapter.abrir(request);
         return ResponseEntity.ok(response);
     }

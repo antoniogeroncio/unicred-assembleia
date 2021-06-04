@@ -18,7 +18,7 @@ import static java.util.Optional.ofNullable;
 @RequiredArgsConstructor
 public class SessaoServiceImpl implements SessaoService {
 
-    private final SessaoRepository repository;
+    private final SessaoRepository sessaoRepository;
     private final PautaRepository pautaRepository;
 
     @Value("${sessao.tempo-padrao}")
@@ -26,10 +26,10 @@ public class SessaoServiceImpl implements SessaoService {
 
     @Override
     public Sessao abrir(Sessao sessao, Long tempo) {
-        validarSePautaJaPossuiSessao(sessao.getPauta().getId());
-        validarSePautaExiste(sessao.getPauta().getId());
+        validarSePautaJaPossuiSessao(sessao.getId());
+        validarSePautaExiste(sessao.getId());
         configurarTempoSessao(sessao, tempo);
-        return repository.save(sessao);
+        return sessaoRepository.save(sessao);
     }
 
     private void validarSePautaExiste(Long idPauta) {
@@ -39,7 +39,7 @@ public class SessaoServiceImpl implements SessaoService {
     }
 
     private void validarSePautaJaPossuiSessao(Long idPauta) {
-        Boolean existeSessao = repository.existsByPautaId(idPauta);
+        Boolean existeSessao = sessaoRepository.existsById(idPauta);
         if(existeSessao)
             throw new ValidacaoException(MSG_A_PAUTA_JA_POSSUI_SESSAO);
     }

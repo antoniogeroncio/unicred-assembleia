@@ -26,18 +26,36 @@ public final class Constantes {
     }
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public final class Mensagens{
+        public static final String MSG_O_CAMPO_CPF_ASSOC_E_OBRIGATORIO = "O campo cpf do associado é obrigatório";
+        public static final String MSG_O_CAMPO_VOTO_ASSOC_E_OBRIGATORIO = "O campo voto do associado é obrigatório";
         public static final String MSG_O_CAMPO_NOME_E_OBRIGATORIO = "O campo nome é obrigatório";
         public static final String MSG_O_CAMPO_ID_PAUTA_E_OBRIGATORIO = "O campo id da pauta é obrigatório";
         public static final String MSG_A_PAUTA_JA_POSSUI_SESSAO = "A pauta já possui sessão";
         public static final String MSG_A_PAUTA_NAO_EXISTE = "A pauta informada não existe";
+        public static final String MSG_O_ASSOCIADO_NAO_EXISTE = "O associado informado não existe";
+        public static final String MSG_A_SESSAO_JA_FOI_FINALIZADA = "A sessão já foi finalizada";
+        public static final String MSG_O_ASSOCIADO_JA_VOTO_PAUTA = "O associado já votou na pauta";
     }
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public final class ApiDoc{
         public static final String API_DOC_NOME_DA_PAUTA = "Nome da Pauta";
         public static final String API_DOC_DESCRICAO_DA_PAUTA = "Descrição da Pauta";
         public static final String API_DOC_ID_DA_PAUTA = "Id da Pauta";
+        public static final String API_DOC_CPF_ASSOC_DA_PAUTA = "CPF do Associado";
+        public static final String API_DOC_VOTO_ASSOC_DA_PAUTA = "Voto do Associado";
         public static final String API_DOC_TEMPO_DA_SESSAO = "Tempo da Sessão";
     }
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public final class Querys{
+        public static final String QUERY_OBTER_RESULTADO_POR_ID_PAUTA =
+                "SELECT new br.com.unicred.domain.vo.VotacaoResultado(p.nome, " +
+                        "(SELECT COUNT(s) FROM Voto s WHERE s.voto = true AND s.id.idPauta = p.id), " +
+                        "(SELECT COUNT(f) FROM Voto f WHERE f.voto = false AND f.id.idPauta = p.id)) " +
+                "FROM Pauta p WHERE p.id = :idPauta";
+
+    }
+
+
 
 
 }
