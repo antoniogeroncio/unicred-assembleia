@@ -5,7 +5,7 @@ services:
     volumes:
       - ./postgres-initdb.sh:/docker-entrypoint-initdb.d/init.sh
   assembleia:
-    image: antoniogeroncio/unicred-assembleia:0.0.1-SNAPSHOT
+    image: antoniogeroncio/unicred-assembleia:1.0.0
     environment:
       - SERVER_PORT=8081
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/unicred
