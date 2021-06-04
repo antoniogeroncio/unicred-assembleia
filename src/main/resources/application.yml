@@ -1,6 +1,5 @@
 server:
   port: 8082
-
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
@@ -8,6 +7,16 @@ spring:
     url: jdbc:postgresql://localhost:5432/unicred
     username: unicred
     password: unicred
+  jpa:
+    show-sql: true
+    open-in-view:logging: true
   logging:
     level:
       br.com.unicred: error
+  flyway:
+    enabled: true
+sessao:
+  tempo-padrao: 1
+client:
+  associado:
+    url: https://user-info.herokuapp.com
