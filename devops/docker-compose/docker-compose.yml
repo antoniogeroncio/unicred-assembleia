@@ -1,0 +1,17 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:9.6.5-alpine
+    volumes:
+      - ./postgres-initdb.sh:/docker-entrypoint-initdb.d/init.sh
+  assembleia:
+    image: antoniogeroncio/unicred-assembleia:0.0.1-SNAPSHOT
+    environment:
+      - SERVER_PORT=8081
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/unicred
+    depends_on:
+      - postgres
+    ports:
+      - 8081:8081
+    links:
+      - postgres:postgres

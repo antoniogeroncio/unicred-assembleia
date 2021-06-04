@@ -5,9 +5,11 @@ CREATE TABLE ass_assembleia.ass_associado (
 );
 CREATE INDEX ass_associado_cpf_idx ON ass_assembleia.ass_associado USING btree (cpf);
 
-INSERT INTO ass_assembleia.ass_associado
-(cpf, nome)
+INSERT INTO ass_assembleia.ass_associado(cpf, nome)
 VALUES('08085977443', 'Antonio Geroncio dos Santos Filho');
+
+INSERT INTO ass_assembleia.ass_associado(cpf, nome)
+VALUES('08085977442', 'Associado com cpf invalido');
 
 CREATE TABLE ass_assembleia.ass_voto (
 	associado_cpf varchar(11) NOT NULL,

@@ -1,4 +1,4 @@
-package br.com.unicred.repository;
+package br.com.unicred.repository.jpa;
 
 import br.com.unicred.domain.Pauta;
 import org.springframework.data.jpa.repository.JpaRepository;

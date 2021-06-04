@@ -17,3 +17,6 @@ spring:
     enabled: true
 sessao:
   tempo-padrao: 1
+client:
+  associado:
+    url: https://user-info.herokuapp.com

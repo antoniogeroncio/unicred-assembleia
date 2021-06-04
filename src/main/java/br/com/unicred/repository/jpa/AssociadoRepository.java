@@ -1,4 +1,4 @@
-package br.com.unicred.repository;
+package br.com.unicred.repository.jpa;
 
 import br.com.unicred.domain.Associado;
 import br.com.unicred.domain.Voto;

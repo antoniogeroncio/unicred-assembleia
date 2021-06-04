@@ -32,7 +32,11 @@ public final class Constantes {
         public static final String MSG_O_CAMPO_ID_PAUTA_E_OBRIGATORIO = "O campo id da pauta é obrigatório";
         public static final String MSG_A_PAUTA_JA_POSSUI_SESSAO = "A pauta já possui sessão";
         public static final String MSG_A_PAUTA_NAO_EXISTE = "A pauta informada não existe";
+        public static final String MSG_A_SESSAO_PAUTA_N_ABERTA_NAO_EXISTE = "A sessão da pauta não foi aberta";
         public static final String MSG_O_ASSOCIADO_NAO_EXISTE = "O associado informado não existe";
+        public static final String MSG_O_ASSOCIADO_CPF_INVALIDO = "O associado possui cpf invalido, favor regularizar";
+        public static final String MSG_O_ASSOCIADO_NAO_ELEGIVEL = "O associado informado não está elegivel, " +
+                "favor regularizar situação junto a diretoria";
         public static final String MSG_A_SESSAO_JA_FOI_FINALIZADA = "A sessão já foi finalizada";
         public static final String MSG_O_ASSOCIADO_JA_VOTO_PAUTA = "O associado já votou na pauta";
     }

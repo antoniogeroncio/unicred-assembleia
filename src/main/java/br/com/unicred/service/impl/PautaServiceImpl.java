@@ -1,7 +1,7 @@
 package br.com.unicred.service.impl;
 
 import br.com.unicred.domain.Pauta;
-import br.com.unicred.repository.PautaRepository;
+import br.com.unicred.repository.jpa.PautaRepository;
 import br.com.unicred.service.PautaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

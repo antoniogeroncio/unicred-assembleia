@@ -2,8 +2,8 @@ package br.com.unicred.service.impl;
 
 import br.com.unicred.api.v1.controller.errors.exception.ValidacaoException;
 import br.com.unicred.domain.Sessao;
-import br.com.unicred.repository.PautaRepository;
-import br.com.unicred.repository.SessaoRepository;
+import br.com.unicred.repository.jpa.PautaRepository;
+import br.com.unicred.repository.jpa.SessaoRepository;
 import br.com.unicred.service.SessaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import static br.com.unicred.config.Constantes.Mensagens.MSG_A_PAUTA_JA_POSSUI_SESSAO;
 import static br.com.unicred.config.Constantes.Mensagens.MSG_A_PAUTA_NAO_EXISTE;
 import static java.time.LocalDateTime.now;
-import static java.util.Optional.ofNullable;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +44,10 @@ public class SessaoServiceImpl implements SessaoService {
     }
 
     private void configurarTempoSessao(Sessao sessao, Long tempo) {
-        sessao.setDataFinalizacao(now().plusMinutes(ofNullable(tempo).orElse(tempoPadrao)));
+        Long minutosAhAcrescentar = tempoPadrao;
+        if(tempo != null && tempo>0){
+            minutosAhAcrescentar = tempo;
+        }
+        sessao.setDataFinalizacao(now().plusMinutes(minutosAhAcrescentar));
     }
 }
