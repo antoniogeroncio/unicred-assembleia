@@ -17,3 +17,5 @@ spring:
       br.com.unicred: debug
   flyway:
     enabled: true
+sessao:
+  tempo-padrao: 1

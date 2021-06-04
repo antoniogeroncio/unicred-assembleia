@@ -1,7 +1,9 @@
 package br.com.unicred.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(schema = "ass_assembleia", name = "ass_pauta")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pauta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +20,6 @@ public class Pauta {
     private Long id;
     @Column(name = "nome", nullable = false)
     private String nome;
-    @Column(name = "descricao", nullable = true)
+    @Column(name = "descricao")
     private String descricao;
 }
