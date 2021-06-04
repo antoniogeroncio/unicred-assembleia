@@ -44,6 +44,11 @@ public final class Constantes {
         public static final String API_DOC_CPF_ASSOC_DA_PAUTA = "CPF do Associado";
         public static final String API_DOC_VOTO_ASSOC_DA_PAUTA = "Voto do Associado";
         public static final String API_DOC_TEMPO_DA_SESSAO = "Tempo da Sessão";
+        public static final String API_DOC_BASE_CONTROLLER = "br.com.unicred.api.v1.controller";
+        public static final String API_DOC_TITULO_UNICRED_ASSEMBLEIA = "Unicred Assembleia";
+        public static final String API_DOC_DESCRICAO_PARA_ASSEMBLEIAS_DA_UNICRED = "API para Assembleias da Unicred";
+        public static final String API_DOC_VERSAO = "1.0.0";
+        public static final String API_DOC_TERMOS_DE_USO = "Termos de uso";
     }
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public final class Querys{

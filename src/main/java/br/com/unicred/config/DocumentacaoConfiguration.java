@@ -8,6 +8,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.Collections;
 
+import static br.com.unicred.config.Constantes.ApiDoc.*;
 import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
 
 @Configuration
@@ -16,17 +17,17 @@ public class DocumentacaoConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.OAS_30)
                 .select()
-                .apis(basePackage("br.com.unicred.api.v1.controller"))
+                .apis(basePackage(API_DOC_BASE_CONTROLLER))
                 .build()
                 .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Unicred Assembleia",
-                "API para Assembleias da Unicred",
-                "0.0.1-SNAPSHOT",
-                "Termos de uso",
+                API_DOC_TITULO_UNICRED_ASSEMBLEIA,
+                API_DOC_DESCRICAO_PARA_ASSEMBLEIAS_DA_UNICRED,
+                API_DOC_VERSAO,
+                API_DOC_TERMOS_DE_USO,
                 ApiInfo.DEFAULT_CONTACT,
                 null, null, Collections.emptyList());
     }

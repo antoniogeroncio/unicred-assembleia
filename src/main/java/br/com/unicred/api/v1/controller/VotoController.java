@@ -18,6 +18,7 @@ import javax.validation.Valid;
 import static br.com.unicred.config.Constantes.*;
 import static br.com.unicred.config.Constantes.Urls.PATH_VOTO;
 import static br.com.unicred.config.Constantes.Urls.PATH_V_1;
+import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 @RequestMapping(PATH_V_1)
@@ -37,7 +38,8 @@ public class VotoController {
     @Transactional
     public ResponseEntity<VotoCadastrarResponseDto> cadastrarVoto(@Valid @RequestBody VotoCadastrarRequestDto request){
         VotoCadastrarResponseDto response = adapter.cadastrar(request);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(CREATED)
+                .body(response);
     }
 
     @GetMapping(PATH_VOTO + "/{idPauta}")
