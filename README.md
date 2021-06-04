@@ -18,7 +18,7 @@ Junit(Unit testing framework)
 
 # Metodologia de Desenvolvimento
 
-TDD: Test-Driven Development (TDD) - Por amostra na estória cadastra pauta
+TDD: Test-Driven Development (TDD) - Por amostra na estória cadastrar pauta
 
 Para eliminar e / ou mitigar bugs foi adicionada ao processo de desenvolvimento a integração contínua.
 
